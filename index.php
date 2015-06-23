@@ -26,7 +26,7 @@ class Loader {
 
 
   protected function _init_class($class){
-    $C = get_instance();
+    $C = &get_instance();
     $name = strtolower($class);
     $C->$name = new $class();
   }
