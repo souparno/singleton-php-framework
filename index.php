@@ -1,21 +1,4 @@
-<?php 
-
-/*
-=================================
- start of the common functions
-================================
-*/
-
-function &get_instance(){
- return Controller::get_instance();
-}
-
-
-/*
-==================================
- end of common functions
-=================================
-*/
+<?php
 
 /*
 ====================================
@@ -26,7 +9,7 @@ class Loader {
 
 
   protected function _init_class($class){
-    $C = &get_instance();
+    $C = Controller::get_instance();
     $name = strtolower($class);
     $C->$name = new $class();
   }
@@ -72,7 +55,7 @@ class Controller {
   }
 
 
-  public static function &get_instance(){
+  public static function get_instance(){
     return self::$instance;
   }
 }
@@ -93,7 +76,7 @@ class MyLibrary {
  private $c;
 
  function __construct() {
-   $this->c = &get_instance();
+   $this->c = Controller::get_instance();
  }
 
  function say($sentence) {
